@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Critical Care Landmark Trials — Part I: Mechanical Ventilation &amp; Respiratory Failure</title>
+<style>
+  :root{
+    --bg:#f6f8fb; --card:#ffffff; --ink:#12203a; --muted:#5d6b83;
+    --line:#e2e8f0; --accent:#1d4ed8; --good:#0f7a4d; --bad:#b42318;
+    --warn:#b45309; --chip:#eef2ff;
+  }
+  *{box-sizing:border-box}
+  html{scroll-behavior:smooth}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+  }
+  header{
+    background:linear-gradient(135deg,#0f172a,#1d4ed8);
+    color:#fff; padding:38px 20px 30px;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:0 16px}
+  header h1{margin:0 0 6px;font-size:1.55rem;line-height:1.25;letter-spacing:-.01em}
+  header p{margin:0;opacity:.85;font-size:.9rem}
+  .kicker{
+    display:inline-block;background:rgba(255,255,255,.15);
+    border:1px solid rgba(255,255,255,.25);
+    padding:2px 10px;border-radius:999px;font-size:.72rem;
+    letter-spacing:.08em;text-transform:uppercase;margin-bottom:12px
+  }
+  nav{
+    position:sticky;top:0;z-index:20;background:rgba(255,255,255,.96);
+    backdrop-filter:blur(8px);border-bottom:1px solid var(--line);
+  }
+  nav .wrap{display:flex;gap:6px;overflow-x:auto;padding:10px 16px;scrollbar-width:none}
+  nav .wrap::-webkit-scrollbar{display:none}
+  nav a{
+    flex:0 0 auto;text-decoration:none;color:var(--muted);font-size:.78rem;
+    font-weight:600;padding:5px 11px;border-radius:999px;background:var(--chip);
+    white-space:nowrap;border:1px solid transparent
+  }
+  nav a:hover{color:var(--accent);border-color:#c7d2fe}
+  main{padding:22px 0 60px}
+  .card{
+    background:var(--card);border:1px solid var(--line);border-radius:14px;
+    padding:20px 20px 18px;margin-bottom:18px;
+    box-shadow:0 1px 2px rgba(16,24,40,.04)
+  }
+  .card h2{
+    margin:0 0 4px;font-size:1.12rem;line-height:1.3;letter-spacing:-.01em;
+    display:flex;gap:10px;align-items:baseline
+  }
+  .num{
+    flex:0 0 auto;width:26px;height:26px;border-radius:8px;background:var(--accent);
+    color:#fff;font-size:.8rem;font-weight:700;display:grid;place-items:center;
+    transform:translateY(-1px)
+  }
+  .cite{font-size:.78rem;color:var(--muted);margin:0 0 12px;padding-left:36px}
+  .quick{
+    background:#f0f7ff;border-left:3px solid var(--accent);
+    padding:9px 12px;border-radius:0 8px 8px 0;font-size:.9rem;margin:0 0 14px
+  }
+  .quick b{color:var(--accent)}
+  h3{font-size:.76rem;text-transform:uppercase;letter-spacing:.08em;
+     color:var(--muted);margin:16px 0 6px;font-weight:700}
+  ul{margin:0 0 4px;padding-left:20px}
+  li{margin-bottom:4px;font-size:.92rem}
+  .cmp{
+    width:100%;border-collapse:collapse;font-size:.88rem;margin:4px 0 2px
+  }
+  .cmp th,.cmp td{padding:7px 8px;border-bottom:1px solid var(--line);text-align:left;vertical-align:top}
+  .cmp thead th{font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+  .cmp td:first-child{color:var(--muted);width:44%}
+  .cmp td b{color:var(--ink)}
+  .verdict{
+    display:inline-flex;align-items:center;gap:5px;font-size:.72rem;font-weight:700;
+    padding:3px 9px;border-radius:999px;margin-bottom:12px;margin-left:36px
+  }
+  .v-good{background:#e7f6ee;color:var(--good)}
+  .v-bad{background:#fdecea;color:var(--bad)}
+  .v-none{background:#f1f5f9;color:var(--muted)}
+  .pearl{
+    background:#fffbeb;border:1px solid #fde68a;border-radius:10px;
+    padding:11px 13px;font-size:.88rem;margin-top:14px
+  }
+  .pearl b{color:#92400e}
+  .tag{
+    display:inline-block;font-size:.7rem;background:#f1f5f9;color:var(--muted);
+    padding:2px 8px;border-radius:6px;margin:0 4px 4px 0
+  }
+  footer{text-align:center;color:var(--muted);font-size:.78rem;padding:10px 16px 40px}
+  @media(max-width:520px){
+    .cmp td:first-child{width:40%}
+    header h1{font-size:1.3rem}
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <span class="kicker">Part I · Exam Revision</span>
+    <h1>Mechanical Ventilation &amp; Respiratory Failure</h1>
+    <p>9 landmark trials · quick take · key numbers · bottom line</p>
+  </div>
+</header>
+
+<nav>
+  <div class="wrap">
+    <a href="#c1">1 · ACURASYS</a>
+    <a href="#c2">2 · ARDSNet</a>
+    <a href="#c3">3 · PROSEVA</a>
+    <a href="#c4">4 · TracMan</a>
+    <a href="#c5">5 · OSCILLATE</a>
+    <a href="#c6">6 · OSCAR</a>
+    <a href="#c7">7 · ExPress</a>
+    <a href="#c8">8 · Weaning</a>
+    <a href="#c9">9 · NIV in COPD</a>
+  </div>
+</nav>
+
+<main class="wrap">
+
+<!-- 1 -->
+<section class="card" id="c1">
+  <h2><span class="num">1</span> Neuromuscular Blockers in Early ARDS — ACURASYS</h2>
+  <p class="cite">Papazian et al. · NEJM 2010 · 20 French ICUs, 2006–2008</p>
+  <span class="verdict v-good">✔ Signal of benefit (later refuted)</span>
+  <p class="quick"><b>Question:</b> Does 48 h of cisatracurium early in severe ARDS improve survival?</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>340 patients · severe ARDS <b>PaO₂/FiO₂ &lt; 150</b> · on lung-protective ventilation</li>
+    <li>Cisatracurium 15 mg bolus → 37.5 mg/h × <b>48 h</b> vs placebo</li>
+    <li>Deep sedation (Ramsay 6) in both arms</li>
+  </ul>
+
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Cisatracurium</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>90-day mortality (crude)</td><td><b>31.6%</b></td><td>40.7% <span style="color:var(--muted)">(P=0.08)</span></td></tr>
+      <tr><td>90-day mortality (adjusted)</td><td colspan="2"><b>HR 0.68 (0.48–0.98), P=0.04</b></td></tr>
+      <tr><td>28-day mortality</td><td>23.7%</td><td>33.3% (P=0.05)</td></tr>
+      <tr><td>Ventilator-free days (90 d)</td><td>53.1</td><td>44.6 (P=0.03)</td></tr>
+      <tr><td>Organ failure–free days (28 d)</td><td>15.8</td><td>12.2 (P=0.01)</td></tr>
+      <tr><td>ICU-acquired paresis (day 28)</td><td>70.8% free</td><td>67.5% free (NS)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li>Benefit confined to <b>PaO₂/FiO₂ &lt; 120 mmHg</b></li>
+    <li>Pneumothorax <i>less</i> common with cisatracurium (4% vs 11.7%)</li>
+    <li>Underpowered — placebo mortality lower than expected (authors said 885 needed)</li>
+  </ul>
+
+  <div class="pearl"><b>ROSE trial (NEJM 2019):</b> 1006 patients, stopped for futility — 90-day mortality <b>42.5% vs 42.8% (P=0.93)</b>. Light sedation control, higher PEEP, more prone (ROSE 16% vs ACURASYS 50%). <b>No routine paralysis.</b></div>
+</section>
+
+<!-- 2 -->
+<section class="card" id="c2">
+  <h2><span class="num">2</span> Low Tidal Volume Ventilation — ARDSNet</h2>
+  <p class="cite">ARDS Network · NEJM 2000 · 10 US university centres, 1996–1999</p>
+  <span class="verdict v-good">✔ Practice-changing benefit</span>
+  <p class="quick"><b>Question:</b> Does 6 mL/kg PBW reduce mortality vs 12 mL/kg in ARDS?</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>861 patients · ARDS (PaO₂/FiO₂ ≤ 300, bilateral infiltrates, no LA hypertension)</li>
+    <li><b>Low TV 6 mL/kg</b> (Pplat ≤ 30) vs <b>traditional 12 mL/kg</b> (Pplat 45–50)</li>
+    <li>Stopped at 4th planned interim analysis</li>
+  </ul>
+
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>6 mL/kg</th><th>12 mL/kg</th></tr></thead>
+    <tbody>
+      <tr><td>Death before discharge / before unassisted breathing</td><td><b>31.0%</b></td><td>39.8% (P=0.007)</td></tr>
+      <tr><td>Breathing without assistance by day 28</td><td><b>65.7%</b></td><td>55.0% (P&lt;0.001)</td></tr>
+      <tr><td>Ventilator-free days (1–28)</td><td>12 ± 11</td><td>10 ± 11 (P=0.007)</td></tr>
+      <tr><td>Organ failure–free days</td><td>15 ± 11</td><td>12 ± 11 (P=0.006)</td></tr>
+      <tr><td>Barotrauma</td><td>10%</td><td>11% (NS)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li>Mean TV days 1–3: <b>6.2 vs 11.8 mL/kg</b> · Pplat <b>25 vs 33 cmH₂O</b></li>
+    <li>IL-6 fell more in low-TV group → less biotrauma</li>
+    <li>Criticism: control arm received higher TV/Pplat than usual practice</li>
+  </ul>
+
+  <div class="pearl"><b>Amato 2015 (mediation analysis of 3562 ARDS patients):</b> <b>Driving pressure (Pplat − PEEP)</b> is the strongest predictor of survival — low TV helps <i>only</i> if it lowers driving pressure.</div>
+</section>
+
+<!-- 3 -->
+<section class="card" id="c3">
+  <h2><span class="num">3</span> Prone Ventilation — PROSEVA</h2>
+  <p class="cite">Guérin et al. · NEJM 2013 · 26 French + 1 Spanish ICU, 2008–2011</p>
+  <span class="verdict v-good">✔ Mortality benefit</span>
+  <p class="quick"><b>Question:</b> Does prolonged prone positioning improve survival in severe ARDS?</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>466 patients · ARDS with <b>PaO₂/FiO₂ &lt; 150</b>, FiO₂ &gt; 0.6, PEEP ≥ 5</li>
+    <li>Prone <b>≥ 16 consecutive hours/day</b> vs supine semi-recumbent</li>
+    <li>12–24 h stabilisation before randomisation · centres experienced in proning</li>
+  </ul>
+
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Prone</th><th>Supine</th></tr></thead>
+    <tbody>
+      <tr><td>28-day mortality</td><td><b>16%</b></td><td>32.8% (P&lt;0.001)</td></tr>
+      <tr><td>90-day mortality</td><td><b>23.6%</b></td><td>41% (P&lt;0.001)</td></tr>
+      <tr><td>Successful extubation at 90 d</td><td>80.5%</td><td>65%</td></tr>
+      <tr><td>Ventilator-free days (28 d)</td><td>14 ± 9</td><td>10 ± 10 (P&lt;0.001)</td></tr>
+      <tr><td>Cardiac arrest</td><td>16</td><td>31</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li>Median prone duration achieved: <b>17 ± 3 h</b> per session</li>
+    <li>Earlier Gattinoni 2001 trial: only ~6 h/day, no mortality benefit → <b>dose matters</b></li>
+    <li>Only ~1/3 of screened patients randomised (highly selected)</li>
+    <li>Baseline imbalance: lower SOFA / more vasopressors in supine arm — benefit persisted after adjustment</li>
+  </ul>
+</section>
+
+<!-- 4 -->
+<section class="card" id="c4">
+  <h2><span class="num">4</span> Early vs Late Tracheostomy — TracMan</h2>
+  <p class="cite">Young et al. · JAMA 2013 · 82 UK hospitals, 2004–2008</p>
+  <span class="verdict v-none">— No difference</span>
+  <p class="quick"><b>Question:</b> Does tracheostomy within 4 days improve outcomes vs waiting to day 10?</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>899 randomised (target 1692 — recruitment failed → <b>underpowered</b>)</li>
+    <li><b>Early</b> = tracheostomy ≤ 4 days of ICU admission<br><b>Late</b> = day 10 or later if still indicated</li>
+    <li>88.7% percutaneous bedside technique</li>
+  </ul>
+
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Early</th><th>Late</th></tr></thead>
+    <tbody>
+      <tr><td>30-day mortality</td><td>30.8%</td><td>31.5% (P=0.89)</td></tr>
+      <tr><td>ICU mortality</td><td>29.7%</td><td>29.7%</td></tr>
+      <tr><td>Hospital mortality</td><td>39.6%</td><td>41.3% (P=0.63)</td></tr>
+      <tr><td>2-year mortality</td><td>51%</td><td>53.7% (P=0.42)</td></tr>
+      <tr><td>Sedation days (30-day survivors)</td><td><b>5 (3–9)</b></td><td>8 (4–12)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li><b>53.7% of the late group never needed a tracheostomy</b> → early strategy risks unnecessary procedures</li>
+    <li>Bleeding: 2.6% early vs 3.9% late</li>
+    <li>No validated tool exists to predict need for prolonged ventilation</li>
+  </ul>
+</section>
+
+<!-- 5 -->
+<section class="card" id="c5">
+  <h2><span class="num">5</span> High-Frequency Oscillation — OSCILLATE</h2>
+  <p class="cite">Ferguson et al. · NEJM 2013 · 39 ICUs, 5 countries</p>
+  <span class="verdict v-bad">✘ Harm — stopped early</span>
+  <p class="quick"><b>Question:</b> Does early HFOV reduce mortality in moderate–severe ARDS?</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>Planned 1200; <b>stopped at 548</b> for safety (mortality signal)</li>
+    <li>HFOV with recruitment manoeuvre (40 cmH₂O × 40 s), mPaw 30 cmH₂O<br>vs conventional pressure-controlled, TV 6 mL/kg, high PEEP</li>
+    <li>SensorMedics 3100B oscillator</li>
+  </ul>
+
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>HFOV</th><th>Conventional</th></tr></thead>
+    <tbody>
+      <tr><td>Hospital mortality</td><td><b>47%</b></td><td>35% (P=0.005)</td></tr>
+      <tr><td>ICU mortality</td><td>45%</td><td>31% (P=0.001)</td></tr>
+      <tr><td>28-day mortality</td><td>40%</td><td>29% (P=0.004)</td></tr>
+      <tr><td>Vasoactive drug use</td><td>91%</td><td>84% (P=0.01)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li>Vasopressor use rose within 4 h of starting HFOV → <b>haemodynamic compromise</b> is the proposed mechanism of harm</li>
+    <li>Barotrauma more common with HFOV (NS)</li>
+    <li>12% of conventional arm crossed over to HFOV</li>
+  </ul>
+</section>
+
+<!-- 6 -->
+<section class="card" id="c6">
+  <h2><span class="num">6</span> High-Frequency Oscillation — OSCAR</h2>
+  <p class="cite">Young et al. · NEJM 2013 (same issue as OSCILLATE) · 27 UK ICUs, 2007–2012</p>
+  <span class="verdict v-none">— No difference</span>
+  <p class="quick"><b>Question:</b> Same question as OSCILLATE — HFOV vs conventional ventilation in ARDS.</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>795 randomised (target 1006) · PaO₂/FiO₂ ≤ 200, PEEP ≥ 5</li>
+    <li>HFOV via <b>Novalung R100</b> (different device from OSCILLATE)</li>
+    <li>Conventional arm: local practice, TV 6–8 mL/kg, ARDSNet PEEP–FiO₂ table</li>
+  </ul>
+
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>HFOV</th><th>Conventional</th></tr></thead>
+    <tbody>
+      <tr><td>30-day mortality</td><td>41.7%</td><td>41.1% (P=0.85)</td></tr>
+      <tr><td>ICU mortality</td><td>44.1%</td><td>42.1% (P=0.57)</td></tr>
+      <tr><td>Hospital mortality</td><td>50.1%</td><td>48.4% (P=0.62)</td></tr>
+      <tr><td>ICU stay</td><td>17.6 d</td><td>16.1 d (P=0.18)</td></tr>
+      <tr><td>Hospital stay</td><td>33.9 d</td><td>33.1 d (P=0.79)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li>No benefit and no clear harm — but <b>no reason to use HFOV</b></li>
+    <li>More neuromuscular blockade used in HFOV arm</li>
+    <li>Meta-analysis (Maitra, 7 RCTs, 1759 pts): no mortality benefit; trend to <b>longer</b> ventilation with HFOV</li>
+  </ul>
+</section>
+
+<!-- 7 -->
+<section class="card" id="c7">
+  <h2><span class="num">7</span> PEEP Setting in ARDS — ExPress</h2>
+  <p class="cite">Mercat et al. · JAMA 2008 · 37 French ICUs, 2002–2005</p>
+  <span class="verdict v-none">— No mortality difference</span>
+  <p class="quick"><b>Question:</b> Increased recruitment (high PEEP) vs minimal distension (low PEEP) in ALI/ARDS?</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>767 analysed · PaO₂:FiO₂ ≤ 300, bilateral infiltrates</li>
+    <li><b>Increased recruitment:</b> PEEP titrated to keep Pplat 28–30 cmH₂O (max PEEP)<br>
+        <b>Minimal distension:</b> total PEEP 5–9 cmH₂O</li>
+    <li>Both: volume-assist control, TV 6 mL/kg PBW</li>
+    <li>Stopped for futility</li>
+  </ul>
+
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Increased recruitment</th><th>Minimal distension</th></tr></thead>
+    <tbody>
+      <tr><td>28-day mortality</td><td>27.8%</td><td>31.2% (P=0.31)</td></tr>
+      <tr><td>Hospital mortality</td><td>35.4%</td><td>39.0% (P=0.30)</td></tr>
+      <tr><td>60-day mortality</td><td>35.9%</td><td>39.5% (P=0.31)</td></tr>
+      <tr><td>Ventilator-free days (28 d)</td><td><b>7 (0–19)</b></td><td>3 (0–17) (P=0.04)</td></tr>
+      <tr><td>Organ failure–free days</td><td><b>6 (0–18)</b></td><td>2 (0–16) (P=0.04)</td></tr>
+      <tr><td>Rescue therapy (prone/iNO)</td><td>18.7%</td><td>34.6% (P&lt;0.001)</td></tr>
+      <tr><td>Pneumothorax</td><td>6.8%</td><td>5.8% (NS)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li>Higher PEEP → better oxygenation, compliance, more ventilator- and organ-failure-free days, fewer rescue therapies — <b>but no survival benefit</b></li>
+    <li>Unblinded; no formal adherence monitoring</li>
+  </ul>
+
+  <div class="pearl"><b>After ExPress:</b> PHARLAP (open lung) — no difference. <b>ART trial</b> — recruitment + PEEP titration to best compliance → <b>higher 28-day mortality</b> (protocol modified after 3 cardiac arrests). Kacmarek open-lung — no mortality difference. <b>Take-home: empirically high PEEP does not help; individualise.</b></div>
+</section>
+
+<!-- 8 -->
+<section class="card" id="c8">
+  <h2><span class="num">8</span> Methods of Weaning from Mechanical Ventilation</h2>
+  <p class="cite">Esteban et al. · NEJM 1995 · 14 Spanish medical–surgical ICUs, 1992–1993</p>
+  <span class="verdict v-good">✔ Once-daily SBT wins</span>
+  <p class="quick"><b>Question:</b> Which weaning method gets difficult-to-wean patients off the ventilator fastest?</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>546 ventilated patients; 416 passed the initial 2-h T-piece SBT and were extubated</li>
+    <li><b>130 "difficult to wean"</b> randomised to 4 methods</li>
+    <li>IMV (rate ↓), PSV (pressure ↓), intermittent SBT (≥2/day), once-daily SBT</li>
+    <li>Success = extubation within 14 days with no reintubation in 48 h</li>
+  </ul>
+
+  <h3>Time to extubation (median)</h3>
+  <table class="cmp">
+    <thead><tr><th>Method</th><th>Median days (IQR)</th></tr></thead>
+    <tbody>
+      <tr><td><b>Once-daily SBT</b></td><td><b>3 (1–6)</b></td></tr>
+      <tr><td>Intermittent SBT (≥2/day)</td><td>3 (2–6)</td></tr>
+      <tr><td>Pressure support ventilation</td><td>4 (2–12)</td></tr>
+      <tr><td>Intermittent mandatory ventilation</td><td>5 (3–11)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Relative rate of successful weaning</h3>
+  <table class="cmp">
+    <thead><tr><th>Comparison</th><th>Relative rate (95% CI)</th></tr></thead>
+    <tbody>
+      <tr><td>Once-daily SBT vs IMV</td><td><b>2.83 (1.36–5.89)</b></td></tr>
+      <tr><td>Once-daily SBT vs PSV</td><td><b>2.05 (1.04–4.04)</b></td></tr>
+      <tr><td>Once-daily SBT vs intermittent SBT</td><td>1.24 (0.64–2.41) — NS</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li>Once-daily SBT ≈ <b>3× faster than IMV</b>, <b>2× faster than PSV</b></li>
+    <li>Extubation and reintubation rates similar across all four arms</li>
+    <li>Small groups (29–37 per arm); uneven COPD distribution</li>
+  </ul>
+
+  <div class="pearl"><b>Subira:</b> 30-min PSV SBT (PEEP 0, PS 8) vs 2-h T-piece → PSV had more successful extubation (82.3% vs 74.0%) and lower hospital/90-day mortality. <b>Current guidelines do not mandate a specific SBT technique.</b></div>
+</section>
+
+<!-- 9 -->
+<section class="card" id="c9">
+  <h2><span class="num">9</span> Non-Invasive Ventilation in Acute COPD Exacerbation</h2>
+  <p class="cite">Brochard et al. · NEJM 1995 · 5 hospitals (Paris ×3, Italy, Spain), 1990–1991</p>
+  <span class="verdict v-good">✔ Landmark benefit</span>
+  <p class="quick"><b>Question:</b> Does NIV (face mask pressure support) reduce intubation and mortality in acute hypercapnic COPD exacerbation?</p>
+
+  <h3>Design</h3>
+  <ul>
+    <li>85 patients randomised (42 standard care, 43 NIV + standard care)</li>
+    <li>Known/likely COPD · dyspnoea &lt; 2 weeks · ≥2 of: RR &gt; 30, PaO₂ &lt; 45 mmHg, pH &lt; 7.35</li>
+    <li>NIV: face mask, <b>inspiratory pressure support 20 cmH₂O</b>, no PEEP, <b>≥ 6 h/day</b></li>
+    <li>Duration of NIV: 4 ± 4 days</li>
+  </ul>
+
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>NIV</th><th>Standard care</th></tr></thead>
+    <tbody>
+      <tr><td>Endotracheal intubation</td><td><b>26%</b></td><td>74% (P&lt;0.001)</td></tr>
+      <tr><td>In-hospital mortality</td><td><b>9% (4/43)</b></td><td>29% (12/42) (P=0.02)</td></tr>
+      <tr><td>Hospital stay</td><td><b>23 ± 17 d</b></td><td>35 ± 33 d (P=0.02)</td></tr>
+      <tr><td>Complications</td><td><b>16%</b></td><td>48% (P=0.001)</td></tr>
+    </tbody>
+  </table>
+
+  <h3>Pearls</h3>
+  <ul>
+    <li>Within 1 h: NIV improved encephalopathy score, RR, PaO₂ and pH; standard care <b>worsened</b></li>
+    <li>Intubation was the main factor driving the mortality difference</li>
+    <li>Only 31% of admitted COPD patients were enrolled → highly selective</li>
+    <li><b>Fragility index = 1</b> — one extra death in NIV arm would have nullified the mortality result</li>
+  </ul>
+
+  <div class="pearl"><b>Subsequent evidence:</b> Cochrane meta-analysis (12 RCTs, 854 pts) — NIV reduced mortality by <b>46%</b> and intubation by <b>65%</b>; benefit in both mild (pH 7.30–7.35) and severe (pH &lt; 7.30) acidosis. NIV is now <b>first-line</b> in acute hypercapnic COPD exacerbation.</div>
+</section>
+
+<footer>
+  Part I of <i>Landmark Studies in Critical Care</i> — quick revision notes. Always confirm against the original papers.
+</footer>
+
+</main>
+</body>
+</html>
