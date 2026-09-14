@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Critical Care Landmark Trials — Part I: Mechanical Ventilation &amp; Respiratory Failure</title>
+<title>Critical Care Landmark Trials — Parts I–VI</title>
 <style>
   :root{
     --bg:#f6f8fb; --card:#ffffff; --ink:#12203a; --muted:#5d6b83;
@@ -15,6 +15,7 @@
   body{
     margin:0; background:var(--bg); color:var(--ink);
     font:16px/1.6 system-ui,-apple-system,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+    padding-bottom:70px;
   }
   header{
     background:linear-gradient(135deg,#0f172a,#1d4ed8);
@@ -85,24 +86,70 @@
     padding:11px 13px;font-size:.88rem;margin-top:14px
   }
   .pearl b{color:#92400e}
-  .tag{
-    display:inline-block;font-size:.7rem;background:#f1f5f9;color:var(--muted);
-    padding:2px 8px;border-radius:6px;margin:0 4px 4px 0
-  }
   footer{text-align:center;color:var(--muted);font-size:.78rem;padding:10px 16px 40px}
   @media(max-width:520px){
     .cmp td:first-child{width:40%}
     header h1{font-size:1.3rem}
   }
+
+  /* ===== Collapsible Parts ===== */
+  details.part{
+    border:1px solid #e2e8f0;border-radius:14px;background:#fff;
+    margin:0 0 16px;box-shadow:0 1px 2px rgba(16,24,40,.04);overflow:hidden;
+  }
+  details.part > summary{
+    cursor:pointer;list-style:none;padding:14px 18px;
+    display:flex;align-items:center;gap:10px;background:#f8fafc;
+    border-bottom:1px solid transparent;user-select:none;transition:background .15s;
+  }
+  details.part[open] > summary{border-bottom-color:#e2e8f0;background:#eef2ff}
+  details.part > summary::-webkit-details-marker{display:none}
+  details.part > summary::before{
+    content:"";flex:0 0 auto;width:8px;height:8px;
+    border-right:2px solid #1d4ed8;border-bottom:2px solid #1d4ed8;
+    transform:rotate(-45deg);transition:transform .2s;
+  }
+  details.part[open] > summary::before{transform:rotate(45deg)}
+  details.part > summary:hover{background:#e0e7ff}
+  details.part > summary h2{margin:0 !important;font-size:1.05rem;letter-spacing:-.01em;line-height:1.25;display:block}
+  details.part > .card{margin:12px;border-radius:10px}
+  #partctrl{display:flex;gap:8px;justify-content:flex-end;margin:0 0 14px}
+  #partctrl button{
+    border:1px solid #e2e8f0;background:#fff;color:#1d4ed8;
+    font:inherit;font-size:.75rem;font-weight:700;padding:5px 12px;
+    border-radius:999px;cursor:pointer;
+  }
+  #partctrl button:hover{background:#eef2ff}
+
+  /* ===== Search Widget ===== */
+  #findbar{
+    position:fixed;bottom:18px;left:50%;transform:translateX(-50%);
+    z-index:100;display:flex;align-items:center;gap:6px;
+    background:#fff;border:1px solid #e2e8f0;border-radius:999px;
+    padding:6px 8px 6px 14px;box-shadow:0 6px 20px rgba(16,24,40,.12);
+  }
+  #findbar input{
+    border:0;outline:0;font:inherit;font-size:.85rem;width:170px;
+    background:transparent;color:#12203a;
+  }
+  #findbar .cnt{font-size:.72rem;color:#5d6b83;min-width:44px;text-align:center}
+  #findbar button{
+    border:0;background:#eef2ff;color:#1d4ed8;font-weight:700;
+    font-size:.75rem;border-radius:999px;padding:5px 9px;cursor:pointer;line-height:1;
+  }
+  #findbar button:hover{background:#dbe4ff}
+  mark.hl{background:#fde68a;color:#12203a;padding:0 1px;border-radius:3px}
+  mark.hl.cur{background:#f59e0b;color:#fff}
+  @media(max-width:520px){#findbar input{width:110px}}
 </style>
 </head>
 <body>
 
 <header>
   <div class="wrap">
-    <span class="kicker">Part I · Exam Revision</span>
-    <h1>Mechanical Ventilation &amp; Respiratory Failure</h1>
-    <p>9 landmark trials · quick take · key numbers · bottom line</p>
+    <span class="kicker">Exam Revision · Parts I–VI</span>
+    <h1>Landmark Trials in Critical Care</h1>
+    <p>33 trials · quick take · key numbers · bottom line</p>
   </div>
 </header>
 
@@ -116,11 +163,38 @@
     <a href="#c6">6 · OSCAR</a>
     <a href="#c7">7 · ExPress</a>
     <a href="#c8">8 · Weaning</a>
-    <a href="#c9">9 · NIV in COPD</a>
+    <a href="#c9">9 · NIV COPD</a>
+    <a href="#c10">10 · SAFE</a>
+    <a href="#c11">11 · ALBIOS</a>
+    <a href="#c12">12 · CHEST</a>
+    <a href="#c13">13 · SMART</a>
+    <a href="#c14">14 · BaSICS</a>
+    <a href="#c15">15 · PLUS</a>
+    <a href="#c16">16 · FACTT</a>
+    <a href="#c17">17 · DART</a>
+    <a href="#c18">18 · BEST-TRIP</a>
+    <a href="#c19">19 · CRASH</a>
+    <a href="#c20">20 · DAWN</a>
+    <a href="#c21">21 · DECRA</a>
+    <a href="#c22">22 · RESCUEicp</a>
+    <a href="#c23">23 · DESTINY II</a>
+    <a href="#c24">24 · ECASS III</a>
+    <a href="#c25">25 · Treiman</a>
+    <a href="#c26">26 · ISAT</a>
+    <a href="#c27">27 · NINDS</a>
+    <a href="#c28">28 · CRASH-3</a>
+    <a href="#c29">29 · Annane</a>
+    <a href="#c30">30 · CORTICUS</a>
+    <a href="#c31">31 · ADRENAL</a>
+    <a href="#c32">32 · Meduri</a>
+    <a href="#c33">33 · LaSRS</a>
   </div>
 </nav>
 
 <main class="wrap">
+
+<!-- ============================================================ -->
+<h2 style="margin:30px 0 14px;font-size:1.05rem;letter-spacing:-.01em;">Part I · Mechanical Ventilation &amp; Respiratory Failure</h2>
 
 <!-- 1 -->
 <section class="card" id="c1">
@@ -128,14 +202,12 @@
   <p class="cite">Papazian et al. · NEJM 2010 · 20 French ICUs, 2006–2008</p>
   <span class="verdict v-good">✔ Signal of benefit (later refuted)</span>
   <p class="quick"><b>Question:</b> Does 48 h of cisatracurium early in severe ARDS improve survival?</p>
-
   <h3>Design</h3>
   <ul>
     <li>340 patients · severe ARDS <b>PaO₂/FiO₂ &lt; 150</b> · on lung-protective ventilation</li>
     <li>Cisatracurium 15 mg bolus → 37.5 mg/h × <b>48 h</b> vs placebo</li>
     <li>Deep sedation (Ramsay 6) in both arms</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Cisatracurium</th><th>Placebo</th></tr></thead>
@@ -148,14 +220,12 @@
       <tr><td>ICU-acquired paresis (day 28)</td><td>70.8% free</td><td>67.5% free (NS)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Benefit confined to <b>PaO₂/FiO₂ &lt; 120 mmHg</b></li>
     <li>Pneumothorax <i>less</i> common with cisatracurium (4% vs 11.7%)</li>
     <li>Underpowered — placebo mortality lower than expected (authors said 885 needed)</li>
   </ul>
-
   <div class="pearl"><b>ROSE trial (NEJM 2019):</b> 1006 patients, stopped for futility — 90-day mortality <b>42.5% vs 42.8% (P=0.93)</b>. Light sedation control, higher PEEP, more prone (ROSE 16% vs ACURASYS 50%). <b>No routine paralysis.</b></div>
 </section>
 
@@ -165,14 +235,12 @@
   <p class="cite">ARDS Network · NEJM 2000 · 10 US university centres, 1996–1999</p>
   <span class="verdict v-good">✔ Practice-changing benefit</span>
   <p class="quick"><b>Question:</b> Does 6 mL/kg PBW reduce mortality vs 12 mL/kg in ARDS?</p>
-
   <h3>Design</h3>
   <ul>
     <li>861 patients · ARDS (PaO₂/FiO₂ ≤ 300, bilateral infiltrates, no LA hypertension)</li>
     <li><b>Low TV 6 mL/kg</b> (Pplat ≤ 30) vs <b>traditional 12 mL/kg</b> (Pplat 45–50)</li>
     <li>Stopped at 4th planned interim analysis</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>6 mL/kg</th><th>12 mL/kg</th></tr></thead>
@@ -184,14 +252,12 @@
       <tr><td>Barotrauma</td><td>10%</td><td>11% (NS)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Mean TV days 1–3: <b>6.2 vs 11.8 mL/kg</b> · Pplat <b>25 vs 33 cmH₂O</b></li>
     <li>IL-6 fell more in low-TV group → less biotrauma</li>
     <li>Criticism: control arm received higher TV/Pplat than usual practice</li>
   </ul>
-
   <div class="pearl"><b>Amato 2015 (mediation analysis of 3562 ARDS patients):</b> <b>Driving pressure (Pplat − PEEP)</b> is the strongest predictor of survival — low TV helps <i>only</i> if it lowers driving pressure.</div>
 </section>
 
@@ -201,14 +267,12 @@
   <p class="cite">Guérin et al. · NEJM 2013 · 26 French + 1 Spanish ICU, 2008–2011</p>
   <span class="verdict v-good">✔ Mortality benefit</span>
   <p class="quick"><b>Question:</b> Does prolonged prone positioning improve survival in severe ARDS?</p>
-
   <h3>Design</h3>
   <ul>
     <li>466 patients · ARDS with <b>PaO₂/FiO₂ &lt; 150</b>, FiO₂ &gt; 0.6, PEEP ≥ 5</li>
     <li>Prone <b>≥ 16 consecutive hours/day</b> vs supine semi-recumbent</li>
     <li>12–24 h stabilisation before randomisation · centres experienced in proning</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Prone</th><th>Supine</th></tr></thead>
@@ -220,7 +284,6 @@
       <tr><td>Cardiac arrest</td><td>16</td><td>31</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Median prone duration achieved: <b>17 ± 3 h</b> per session</li>
@@ -236,14 +299,12 @@
   <p class="cite">Young et al. · JAMA 2013 · 82 UK hospitals, 2004–2008</p>
   <span class="verdict v-none">— No difference</span>
   <p class="quick"><b>Question:</b> Does tracheostomy within 4 days improve outcomes vs waiting to day 10?</p>
-
   <h3>Design</h3>
   <ul>
     <li>899 randomised (target 1692 — recruitment failed → <b>underpowered</b>)</li>
     <li><b>Early</b> = tracheostomy ≤ 4 days of ICU admission<br><b>Late</b> = day 10 or later if still indicated</li>
     <li>88.7% percutaneous bedside technique</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Early</th><th>Late</th></tr></thead>
@@ -255,7 +316,6 @@
       <tr><td>Sedation days (30-day survivors)</td><td><b>5 (3–9)</b></td><td>8 (4–12)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li><b>53.7% of the late group never needed a tracheostomy</b> → early strategy risks unnecessary procedures</li>
@@ -270,14 +330,12 @@
   <p class="cite">Ferguson et al. · NEJM 2013 · 39 ICUs, 5 countries</p>
   <span class="verdict v-bad">✘ Harm — stopped early</span>
   <p class="quick"><b>Question:</b> Does early HFOV reduce mortality in moderate–severe ARDS?</p>
-
   <h3>Design</h3>
   <ul>
     <li>Planned 1200; <b>stopped at 548</b> for safety (mortality signal)</li>
     <li>HFOV with recruitment manoeuvre (40 cmH₂O × 40 s), mPaw 30 cmH₂O<br>vs conventional pressure-controlled, TV 6 mL/kg, high PEEP</li>
     <li>SensorMedics 3100B oscillator</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>HFOV</th><th>Conventional</th></tr></thead>
@@ -288,7 +346,6 @@
       <tr><td>Vasoactive drug use</td><td>91%</td><td>84% (P=0.01)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Vasopressor use rose within 4 h of starting HFOV → <b>haemodynamic compromise</b> is the proposed mechanism of harm</li>
@@ -303,14 +360,12 @@
   <p class="cite">Young et al. · NEJM 2013 (same issue as OSCILLATE) · 27 UK ICUs, 2007–2012</p>
   <span class="verdict v-none">— No difference</span>
   <p class="quick"><b>Question:</b> Same question as OSCILLATE — HFOV vs conventional ventilation in ARDS.</p>
-
   <h3>Design</h3>
   <ul>
     <li>795 randomised (target 1006) · PaO₂/FiO₂ ≤ 200, PEEP ≥ 5</li>
     <li>HFOV via <b>Novalung R100</b> (different device from OSCILLATE)</li>
     <li>Conventional arm: local practice, TV 6–8 mL/kg, ARDSNet PEEP–FiO₂ table</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>HFOV</th><th>Conventional</th></tr></thead>
@@ -322,7 +377,6 @@
       <tr><td>Hospital stay</td><td>33.9 d</td><td>33.1 d (P=0.79)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>No benefit and no clear harm — but <b>no reason to use HFOV</b></li>
@@ -337,7 +391,6 @@
   <p class="cite">Mercat et al. · JAMA 2008 · 37 French ICUs, 2002–2005</p>
   <span class="verdict v-none">— No mortality difference</span>
   <p class="quick"><b>Question:</b> Increased recruitment (high PEEP) vs minimal distension (low PEEP) in ALI/ARDS?</p>
-
   <h3>Design</h3>
   <ul>
     <li>767 analysed · PaO₂:FiO₂ ≤ 300, bilateral infiltrates</li>
@@ -346,7 +399,6 @@
     <li>Both: volume-assist control, TV 6 mL/kg PBW</li>
     <li>Stopped for futility</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Increased recruitment</th><th>Minimal distension</th></tr></thead>
@@ -360,14 +412,12 @@
       <tr><td>Pneumothorax</td><td>6.8%</td><td>5.8% (NS)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Higher PEEP → better oxygenation, compliance, more ventilator- and organ-failure-free days, fewer rescue therapies — <b>but no survival benefit</b></li>
     <li>Unblinded; no formal adherence monitoring</li>
   </ul>
-
-  <div class="pearl"><b>After ExPress:</b> PHARLAP (open lung) — no difference. <b>ART trial</b> — recruitment + PEEP titration to best compliance → <b>higher 28-day mortality</b> (protocol modified after 3 cardiac arrests). Kacmarek open-lung — no mortality difference. <b>Take-home: empirically high PEEP does not help; individualise.</b></div>
+  <div class="pearl"><b>After ExPress:</b> PHARLAP (open lung) — no difference. <b>ART trial</b> — recruitment + PEEP titration to best compliance → <b>higher 28-day mortality</b>. Kacmarek open-lung — no mortality difference. <b>Take-home: empirically high PEEP does not help; individualise.</b></div>
 </section>
 
 <!-- 8 -->
@@ -376,7 +426,6 @@
   <p class="cite">Esteban et al. · NEJM 1995 · 14 Spanish medical–surgical ICUs, 1992–1993</p>
   <span class="verdict v-good">✔ Once-daily SBT wins</span>
   <p class="quick"><b>Question:</b> Which weaning method gets difficult-to-wean patients off the ventilator fastest?</p>
-
   <h3>Design</h3>
   <ul>
     <li>546 ventilated patients; 416 passed the initial 2-h T-piece SBT and were extubated</li>
@@ -384,7 +433,6 @@
     <li>IMV (rate ↓), PSV (pressure ↓), intermittent SBT (≥2/day), once-daily SBT</li>
     <li>Success = extubation within 14 days with no reintubation in 48 h</li>
   </ul>
-
   <h3>Time to extubation (median)</h3>
   <table class="cmp">
     <thead><tr><th>Method</th><th>Median days (IQR)</th></tr></thead>
@@ -395,7 +443,6 @@
       <tr><td>Intermittent mandatory ventilation</td><td>5 (3–11)</td></tr>
     </tbody>
   </table>
-
   <h3>Relative rate of successful weaning</h3>
   <table class="cmp">
     <thead><tr><th>Comparison</th><th>Relative rate (95% CI)</th></tr></thead>
@@ -405,14 +452,12 @@
       <tr><td>Once-daily SBT vs intermittent SBT</td><td>1.24 (0.64–2.41) — NS</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Once-daily SBT ≈ <b>3× faster than IMV</b>, <b>2× faster than PSV</b></li>
     <li>Extubation and reintubation rates similar across all four arms</li>
     <li>Small groups (29–37 per arm); uneven COPD distribution</li>
   </ul>
-
   <div class="pearl"><b>Subira:</b> 30-min PSV SBT (PEEP 0, PS 8) vs 2-h T-piece → PSV had more successful extubation (82.3% vs 74.0%) and lower hospital/90-day mortality. <b>Current guidelines do not mandate a specific SBT technique.</b></div>
 </section>
 
@@ -422,7 +467,6 @@
   <p class="cite">Brochard et al. · NEJM 1995 · 5 hospitals (Paris ×3, Italy, Spain), 1990–1991</p>
   <span class="verdict v-good">✔ Landmark benefit</span>
   <p class="quick"><b>Question:</b> Does NIV (face mask pressure support) reduce intubation and mortality in acute hypercapnic COPD exacerbation?</p>
-
   <h3>Design</h3>
   <ul>
     <li>85 patients randomised (42 standard care, 43 NIV + standard care)</li>
@@ -430,7 +474,6 @@
     <li>NIV: face mask, <b>inspiratory pressure support 20 cmH₂O</b>, no PEEP, <b>≥ 6 h/day</b></li>
     <li>Duration of NIV: 4 ± 4 days</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>NIV</th><th>Standard care</th></tr></thead>
@@ -441,7 +484,6 @@
       <tr><td>Complications</td><td><b>16%</b></td><td>48% (P=0.001)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Within 1 h: NIV improved encephalopathy score, RR, PaO₂ and pH; standard care <b>worsened</b></li>
@@ -449,14 +491,10 @@
     <li>Only 31% of admitted COPD patients were enrolled → highly selective</li>
     <li><b>Fragility index = 1</b> — one extra death in NIV arm would have nullified the mortality result</li>
   </ul>
-
   <div class="pearl"><b>Subsequent evidence:</b> Cochrane meta-analysis (12 RCTs, 854 pts) — NIV reduced mortality by <b>46%</b> and intubation by <b>65%</b>; benefit in both mild (pH 7.30–7.35) and severe (pH &lt; 7.30) acidosis. NIV is now <b>first-line</b> in acute hypercapnic COPD exacerbation.</div>
 </section>
 
-<footer>
-  Part I of <i>Landmark Studies in Critical Care</i> — quick revision notes. Always confirm against the original papers.
-</footer>
-<!-- ================= PART II · FLUID MANAGEMENT ================= -->
+<!-- ============================================================ -->
 <h2 style="margin:30px 0 14px;font-size:1.05rem;letter-spacing:-.01em;">Part II · Fluid Management</h2>
 
 <!-- 10 -->
@@ -465,14 +503,12 @@
   <p class="cite">Finfer et al. · NEJM 2004 · 16 ANZ ICUs, 6997 patients</p>
   <span class="verdict v-none">— No overall difference</span>
   <p class="quick"><b>Question:</b> Is 4% albumin safer/efficacious than 0.9% saline for ICU fluid resuscitation?</p>
-
   <h3>Design</h3>
   <ul>
     <li>6997 ICU patients needing fluid resuscitation · double-blind</li>
     <li><b>4% albumin</b> vs <b>0.9% saline</b>, 500 mL masked bottles</li>
     <li>Primary: all-cause mortality at 28 days</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Albumin</th><th>Saline</th></tr></thead>
@@ -483,13 +519,11 @@
       <tr><td>MV / RRT duration</td><td colspan="2">No difference</td></tr>
     </tbody>
   </table>
-
   <h3>Subgroups</h3>
   <ul>
     <li><b>Trauma:</b> albumin harm signal — RR 1.36 vs non-trauma 0.96 (P=0.04)</li>
     <li><b>Severe sepsis:</b> trend to benefit — RR 0.87 vs 1.05 (P=0.06)</li>
   </ul>
-
   <div class="pearl"><b>SAFE-TBI (24 months):</b> albumin mortality <b>33.2% vs 29.4%</b> saline; RR 1.63 (1.17–2.26), P=0.003. <b>Avoid albumin in traumatic brain injury.</b> Overall: albumin is safe but offers no survival advantage; avoid in TBI.</div>
 </section>
 
@@ -499,13 +533,11 @@
   <p class="cite">Caironi et al. · NEJM 2014 · 100 Italian ICUs, 1818 patients</p>
   <span class="verdict v-none">— No overall survival benefit</span>
   <p class="quick"><b>Question:</b> Does 20% albumin + crystalloid improve outcomes in severe sepsis/septic shock?</p>
-
   <h3>Design</h3>
   <ul>
     <li>Severe sepsis within 24 h · <b>20% albumin</b> to keep serum albumin ≥30 g/L + crystalloid vs crystalloid alone</li>
     <li>Primary: 28-day mortality</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Albumin</th><th>Crystalloid</th></tr></thead>
@@ -515,13 +547,11 @@
       <tr><td>Vasopressor cessation</td><td><b>3 days</b></td><td>4 days (P=0.007)</td></tr>
     </tbody>
   </table>
-
   <h3>Post hoc</h3>
   <ul>
     <li><b>Septic shock subgroup:</b> 90-day mortality <b>43.6% vs 49.9%</b>, RR 0.87 (P=0.03) — hypothesis-generating</li>
     <li>No benefit in severe sepsis without shock</li>
   </ul>
-
   <div class="pearl"><b>Take-home:</b> Albumin did not improve survival overall. It improved haemodynamics and shortened vasopressor use. Possible benefit in septic shock remains unproven.</div>
 </section>
 
@@ -531,14 +561,12 @@
   <p class="cite">Myburgh et al. · NEJM 2012 · 32 ANZ ICUs, 7000 patients</p>
   <span class="verdict v-bad">✘ Renal harm</span>
   <p class="quick"><b>Question:</b> Does 6% HES 130/0.4 improve outcomes vs normal saline in ICU resuscitation?</p>
-
   <h3>Design</h3>
   <ul>
     <li>7000 ICU patients needing fluid resuscitation · double-blind</li>
     <li><b>6% HES</b> (max 50 mL/kg/day) vs <b>0.9% saline</b></li>
     <li>Primary: 90-day mortality</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>HES</th><th>Saline</th></tr></thead>
@@ -549,7 +577,6 @@
       <tr><td>New hepatic failure</td><td><b>More common</b></td><td>Less common</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Urine output lower and creatinine higher in HES group in week 1</li>
@@ -564,14 +591,12 @@
   <p class="cite">Semler et al. · NEJM 2018 · 5 ICUs, Vanderbilt, 15,802 patients</p>
   <span class="verdict v-good">✔ Modest benefit</span>
   <p class="quick"><b>Question:</b> Do balanced crystalloids reduce major adverse kidney events vs saline?</p>
-
   <h3>Design</h3>
   <ul>
     <li>Cluster-randomised, multiple-crossover · ICU assigned monthly to balanced crystalloids or saline</li>
     <li><b>Balanced:</b> lactated Ringer’s or Plasma-Lyte A<br><b>Control:</b> 0.9% saline</li>
     <li>Primary: MAKE30 — death, new RRT, or persistent renal dysfunction at 30 days</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Balanced</th><th>Saline</th></tr></thead>
@@ -582,7 +607,6 @@
       <tr><td>Persistent renal dysfunction</td><td>6.4%</td><td>6.6% (P=0.60)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Benefit greatest in <b>sepsis</b> — MAKE30 25.2% vs 29.4%</li>
@@ -597,14 +621,12 @@
   <p class="cite">Zampieri et al. · JAMA 2021 · 75 Brazilian ICUs, 11,052 patients</p>
   <span class="verdict v-none">— No mortality benefit</span>
   <p class="quick"><b>Question:</b> Does Plasma-Lyte 148 reduce 90-day mortality vs saline in critically ill adults?</p>
-
   <h3>Design</h3>
   <ul>
     <li>Multicentre, double-blind, 2×2 factorial (fluid type + infusion speed)</li>
     <li><b>Plasma-Lyte 148</b> vs <b>0.9% saline</b> for ICU fluids</li>
     <li>Primary: 90-day mortality</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Balanced</th><th>Saline</th></tr></thead>
@@ -615,7 +637,6 @@
       <tr><td>Neurological SOFA &gt;2 at day 7</td><td><b>32.1%</b></td><td>26.0% <span style="color:var(--muted)">(OR 1.40)</span></td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Contrasts with SMART; double-blind and multicentre — more rigorous</li>
@@ -630,14 +651,12 @@
   <p class="cite">Finfer et al. · NEJM 2022 · 53 ANZ ICUs, 5037 patients</p>
   <span class="verdict v-none">— No difference</span>
   <p class="quick"><b>Question:</b> Does Plasma-Lyte 148 improve 90-day mortality vs saline in ICU patients?</p>
-
   <h3>Design</h3>
   <ul>
     <li>Double-blind, multicentre · ICU stay expected ≥3 days</li>
     <li><b>Plasma-Lyte 148</b> vs <b>0.9% saline</b> for all compatible IV fluids</li>
     <li>Primary: 90-day mortality</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Balanced</th><th>Saline</th></tr></thead>
@@ -648,7 +667,6 @@
       <tr><td>Ventilator-free days (90 d)</td><td>68.3</td><td>68.2 (NS)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>Lower chloride and higher pH with Plasma-Lyte — biochemical difference without clinical benefit</li>
@@ -663,7 +681,6 @@
   <p class="cite">ARDS Network · NEJM 2006 · 20 North American centres, 1000 patients</p>
   <span class="verdict v-good">✔ Lung/ICU benefit, no mortality difference</span>
   <p class="quick"><b>Question:</b> Does a conservative fluid strategy improve outcomes in acute lung injury/ARDS?</p>
-
   <h3>Design</h3>
   <ul>
     <li>1000 patients with ALI/ARDS · 2×2 factorial: fluid strategy × catheter type</li>
@@ -671,7 +688,6 @@
         <b>Liberal:</b> CVP 10–14 mmHg or PAOP 14–18 mmHg</li>
     <li>Primary: 60-day in-hospital mortality</li>
   </ul>
-
   <h3>Key numbers</h3>
   <table class="cmp">
     <thead><tr><th>Outcome</th><th>Conservative</th><th>Liberal</th></tr></thead>
@@ -682,17 +698,810 @@
       <tr><td>7-day fluid balance</td><td><b>136 ± 491 mL</b></td><td>6992 ± 502 mL (P&lt;0.001)</td></tr>
     </tbody>
   </table>
-
   <h3>Pearls</h3>
   <ul>
     <li>No difference in RRT requirement or organ failure–free days</li>
     <li>Electrolyte abnormalities (hypokalaemia, metabolic alkalosis) more common with conservative strategy, but no arrhythmias</li>
     <li><b>PAC vs CVC:</b> no outcome difference; PAC had twice the catheter-related complications</li>
   </ul>
-
   <div class="pearl"><b>Take-home:</b> Conservative fluid strategy improves lung function, shortens ventilation and ICU stay, without increasing organ failure. Avoid fluid overload once shock has resolved.</div>
 </section>
-<!-- ================= END PART II ================= -->
+
+<!-- ============================================================ -->
+<h2 style="margin:30px 0 14px;font-size:1.05rem;letter-spacing:-.01em;">Part III · Cardiopulmonary Resuscitation</h2>
+
+<!-- 17 -->
+<section class="card" id="c17">
+  <h2><span class="num">17</span> Compression-Only CPR in Out-of-Hospital Cardiac Arrest — DART</h2>
+  <p class="cite">Rea et al. · NEJM 2010 · 3 EMS systems (Washington State ×2, London Ambulance Service), 2004–2008</p>
+  <span class="verdict v-good">✔ Compression-only at least as good</span>
+  <p class="quick"><b>Question:</b> For dispatcher-assisted bystander CPR, is compression-only as effective as compressions + rescue breathing?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>Adult (&gt;18 y) out-of-hospital cardiac arrest · dispatcher-assisted CPR · randomised in blocks of 10, stratified by dispatch centre</li>
+    <li><b>Compression-only:</b> 50 consecutive compressions → check for signs of life → continue</li>
+    <li><b>Standard CPR:</b> 15 compressions : 2 rescue breaths</li>
+    <li>Primary outcome: survival to hospital discharge</li>
+    <li>Excluded: trauma, drowning, asphyxiation, DNR orders, arrests already receiving CPR</li>
+  </ul>
+  <h3>Population</h3>
+  <ul>
+    <li>5525 randomisation envelopes opened → <b>1941 met inclusion criteria</b> (981 compression-only vs 960 conventional)</li>
+    <li>Cardiac cause ~70% · witnessed &lt;50% · shockable rhythm ~1/3</li>
+    <li>Mean dispatch-to-EMS arrival time: <b>6.5 min</b></li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Compression-only</th><th>Compressions + breaths</th></tr></thead>
+    <tbody>
+      <tr><td>Survival to hospital discharge</td><td>12.5% (122/978)</td><td>11.0% (105/956) <span style="color:var(--muted)">(P=0.31)</span></td></tr>
+      <tr><td>ROSC at end of EMS care</td><td><b>38.5%</b></td><td>31.3% <span style="color:var(--muted)">(P=0.005)</span></td></tr>
+      <tr><td>Survival with favourable neuro outcome (CPC 1–2)</td><td>14.4%</td><td>11.5% (P=0.13)</td></tr>
+      <tr><td>Survival — cardiac cause subgroup</td><td><b>15.5%</b></td><td>12.3% <span style="color:var(--muted)">(P=0.09)</span></td></tr>
+      <tr><td>Survival — shockable rhythm subgroup</td><td><b>31.9%</b></td><td>25.7% <span style="color:var(--muted)">(P=0.09)</span></td></tr>
+      <tr><td>Survival with good neuro — cardiac cause</td><td><b>18.9%</b></td><td>13.5% <span style="color:var(--muted)">(P=0.03)</span></td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>Study powered for a <b>3.5% absolute difference</b> — overall primary outcome was underpowered for neurological subgroup</li>
+    <li>Rescue breathing interrupts compressions and raises intrathoracic pressure → ↓ venous return, ↓ coronary perfusion</li>
+    <li>Lay public reluctant to perform mouth-to-mouth (infection fear)</li>
+    <li>15:2 ratio used (AHA now recommends 30:2) — a limitation</li>
+    <li>Applicable to <b>untrained bystanders</b>, not trained EMS personnel</li>
+  </ul>
+  <div class="pearl">
+    <b>Other evidence:</b><br>
+    • <b>Svensson (Swedish EMS, same NEJM issue):</b> 1276 patients, 30-day survival 8.7% vs 7.0% (P=0.29) — no difference.<br>
+    • <b>Cabrini meta-analysis (3 RCTs, 3737 pts):</b> survival to discharge <b>11.5% vs 9.4%, P=0.04</b> favouring compression-only.<br>
+    • <b>Hüpfl meta-analysis:</b> dispatcher-assisted compression-only → <b>22% improvement in survival</b> vs standard CPR.
+  </div>
+  <div class="pearl"><b>Take-home:</b> For lay bystanders in out-of-hospital cardiac arrest, compression-only CPR is at least as effective as standard CPR and may be superior — especially for cardiac-cause and shockable-rhythm arrests. <b>Trained EMS must still use standard CPR.</b> Ventilation remains essential in primary respiratory causes (drowning, asphyxia).</div>
+</section>
+
+<!-- ============================================================ -->
+<h2 style="margin:30px 0 14px;font-size:1.05rem;letter-spacing:-.01em;">Part IV · Neurosciences</h2>
+
+<!-- 18 -->
+<section class="card" id="c18">
+  <h2><span class="num">18</span> ICP Monitoring in TBI — BEST-TRIP</h2>
+  <p class="cite">Chesnut et al. · NEJM 2012 · 6 sites (4 Bolivia, 2 Ecuador), 2008–2012</p>
+  <span class="verdict v-none">— No benefit</span>
+  <p class="quick"><b>Question:</b> Does ICP-guided management improve outcomes vs clinical exam + CT in severe TBI?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>324 patients · severe TBI · GCS 3–8 (or motor 1–5 if intubated)</li>
+    <li><b>ICP group:</b> intraparenchymal catheter, target ICP &lt; 20 mmHg<br>
+        <b>I-CE group:</b> management guided by exam + serial CT, osmotherapy, brief hyperventilation</li>
+    <li>Primary: composite of 21 parameters (survival, consciousness, function, neuropsych) at 6 months</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>ICP group</th><th>I-CE group</th></tr></thead>
+    <tbody>
+      <tr><td>Composite primary outcome (0–100, higher = better)</td><td>56</td><td>53 <span style="color:var(--muted)">(P=0.49)</span></td></tr>
+      <tr><td>6-month mortality</td><td>39%</td><td>41% <span style="color:var(--muted)">(OR 1.10)</span></td></tr>
+      <tr><td>GOS-E favourable (5–8)</td><td>44%</td><td>39%</td></tr>
+      <tr><td>ICU length of stay</td><td>12 days</td><td>9 days (P=0.25)</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>Conducted in Latin America where ICP monitoring was <b>not routine</b> → equipoise possible</li>
+    <li>I-CE group received <b>more osmotherapy, hypertonic saline, hyperventilation</b> and barbiturates</li>
+    <li>10 catheter-related adverse events (malfunction 3%, accidental removal 3%, haemorrhage 1)</li>
+  </ul>
+  <div class="pearl"><b>Take-home:</b> Does not challenge ICP monitoring itself — challenges the <b>fixed 20 mmHg threshold algorithm</b>. May not apply to centres where ICP monitoring is standard. Suggests exam + CT can be adequate in resource-limited settings.</div>
+</section>
+
+<!-- 19 -->
+<section class="card" id="c19">
+  <h2><span class="num">19</span> Methylprednisolone in TBI — CRASH</h2>
+  <p class="cite">Roberts et al. · Lancet 2004 (2-week) / 2005 (6-month) · 239 hospitals, 49 countries, 1999–2004</p>
+  <span class="verdict v-bad">✘ Harm</span>
+  <p class="quick"><b>Question:</b> Does early methylprednisolone improve survival in clinically significant head injury?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>10,008 adults · GCS ≤ 14 · within 8 h of injury</li>
+    <li><b>Methylprednisolone:</b> 2 g IV over 1 h, then 0.4 mg/h × 48 h vs placebo</li>
+    <li>Randomised using the <b>"uncertainty principle"</b></li>
+    <li>Target 20,000 patients; <b>stopped early</b> at interim analysis</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Methylprednisolone</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>2-week mortality</td><td><b>21%</b> (1052/4985)</td><td>18% (893/4979) <span style="color:var(--muted)">(RR 1.18, P=0.0001)</span></td></tr>
+      <tr><td>6-month mortality</td><td><b>25.7%</b></td><td>22.3% <span style="color:var(--muted)">(RR 1.15, P=0.0001)</span></td></tr>
+      <tr><td>Death or severe disability (6 m)</td><td>38.1%</td><td>36.3% <span style="color:var(--muted)">(RR 1.05, P=0.079)</span></td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li><b>No</b> increase in infection, seizures, GI bleeding, or neurosurgical intervention</li>
+    <li>Harm mechanism unexplained; hyperglycaemia may have unblinded clinicians</li>
+    <li>Contrasted with NASCIS-2 spinal cord data that spurred enthusiasm</li>
+  </ul>
+  <div class="pearl"><b>Take-home:</b> Corticosteroids are <b>contraindicated</b> in traumatic brain injury, regardless of severity. Landmark example of a plausible therapy causing measurable harm in a large population.</div>
+</section>
+
+<!-- 20 -->
+<section class="card" id="c20">
+  <h2><span class="num">20</span> Thrombectomy 6–24 h — DAWN</h2>
+  <p class="cite">Nogueira et al. · NEJM 2018 · 26 centres (US, Canada, Europe, Australia), 2014–2017</p>
+  <span class="verdict v-good">✔ Practice-changing benefit</span>
+  <p class="quick"><b>Question:</b> Does endovascular thrombectomy beyond 6 h improve outcomes when clinical deficit is out of proportion to infarct size?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>206 patients · ICA or proximal MCA occlusion · last known well 6–24 h ago</li>
+    <li><b>Clinical–core mismatch criteria</b> (3 groups):<br>
+        A: ≥80 y, core &lt;21 mL, NIHSS ≥10<br>
+        B: &lt;80 y, core &lt;31 mL, NIHSS ≥10<br>
+        C: &lt;80 y, core 31–50 mL, NIHSS ≥20</li>
+    <li>Mechanical thrombectomy + standard care vs standard care alone</li>
+    <li>Adaptive Bayesian design; <b>stopped at first interim analysis</b></li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Thrombectomy</th><th>Control</th></tr></thead>
+    <tbody>
+      <tr><td>Utility-weighted mRS (0–10, higher better)</td><td><b>5.5 ± 3.8</b></td><td>3.4 ± 3.1 <span style="color:var(--muted)">(posterior prob &gt;0.999)</span></td></tr>
+      <tr><td>Functional independence at 90 d (mRS 0–2)</td><td><b>49%</b></td><td>13% <span style="color:var(--muted)">(posterior prob &gt;0.999)</span></td></tr>
+      <tr><td>Early neurological response</td><td>48%</td><td>19% (P&lt;0.001)</td></tr>
+      <tr><td>Recanalisation at 24 h</td><td>77%</td><td>39% (P&lt;0.001)</td></tr>
+      <tr><td>Infarct volume at 24 h</td><td>8 mL</td><td>22 mL (P≤0.001)</td></tr>
+      <tr><td>Symptomatic ICH</td><td>6%</td><td>3% (NS)</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>Median time last-known-well → randomisation: <b>12.2 vs 13.3 h</b></li>
+    <li>63% of thrombectomy and 47% of control were <b>wake-up strokes</b></li>
+    <li><b>NNT = 2</b> for reduced disability</li>
+    <li>Benefit independent of age, stroke severity, occlusion site, time to treatment</li>
+  </ul>
+  <div class="pearl"><b>Take-home:</b> Selection by <b>mismatch between deficit and infarct core</b> (CT/MR perfusion) — not the clock — determines who benefits. Extended the thrombectomy window to 24 h in selected patients.</div>
+</section>
+
+<!-- 21 -->
+<section class="card" id="c21">
+  <h2><span class="num">21</span> Decompressive Craniectomy in Diffuse TBI — DECRA</h2>
+  <p class="cite">Cooper et al. · NEJM 2011 · 15 ICUs (ANZ + Saudi Arabia), 2002–2010</p>
+  <span class="verdict v-bad">✘ Worse functional outcomes</span>
+  <p class="quick"><b>Question:</b> Does early decompressive craniectomy improve outcomes in severe diffuse TBI with refractory intracranial hypertension?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>155 patients · 15–59 y · severe non-penetrating TBI · Marshall class III</li>
+    <li><b>Refractory ICP:</b> ICP &gt; 20 mmHg for &gt; 15 min in a 1-h period despite tier-1 therapy</li>
+    <li><b>Bifrontotemporoparietal craniectomy</b> + dura opening vs continued standard care</li>
+    <li>Primary: Extended Glasgow Outcome Scale at 6 months</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Craniectomy</th><th>Standard care</th></tr></thead>
+    <tbody>
+      <tr><td>Unfavourable outcome (death/vegetative/severe disability)</td><td><b>70%</b> (51/73)</td><td>51% (42/82) <span style="color:var(--muted)">(OR 2.21, P=0.02)</span></td></tr>
+      <tr><td>Mean ICP after intervention</td><td><b>14.4 mmHg</b></td><td>19.1 mmHg</td></tr>
+      <tr><td>Ventilation days (median)</td><td><b>11</b></td><td>15 (P&lt;0.001)</td></tr>
+      <tr><td>ICU days (median)</td><td><b>13</b></td><td>18 (P&lt;0.001)</td></tr>
+      <tr><td>6-month mortality</td><td colspan="2">Similar between groups</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>ICP fell dramatically — but functional outcomes were <b>worse</b></li>
+    <li>Proposed mechanism: brain swelling outside the skull → axonal stretch</li>
+    <li>Bilateral technique may be less favourable than unilateral</li>
+    <li>18% of standard care group crossed over to craniectomy after 72 h</li>
+    <li>Sample size reduced from 210 → 150 at interim analysis</li>
+  </ul>
+</section>
+
+<!-- 22 -->
+<section class="card" id="c22">
+  <h2><span class="num">22</span> Decompressive Craniectomy for Refractory ICP — RESCUEicp</h2>
+  <p class="cite">Hutchinson et al. · NEJM 2016 · 52 centres, 20 countries, 2004–2014</p>
+  <span class="verdict v-none">— Saves lives, more disability</span>
+  <p class="quick"><b>Question:</b> Does last-tier decompressive craniectomy improve outcomes vs medical therapy in refractory intracranial hypertension after TBI?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>408 patients · TBI with ICP &gt; 25 mmHg for 1–12 h despite stage 1 + 2 therapy</li>
+    <li><b>Stage 1:</b> sedation, analgesia, NMB, CPP &gt;60, normothermia, normoglycaemia<br>
+        <b>Stage 2:</b> ventriculostomy, osmotherapy, PaCO₂ 30–34, hypothermia ≥34 °C</li>
+    <li>Decompressive craniectomy (unilateral or bifrontal) vs continued medical therapy (± barbiturates)</li>
+    <li>Primary: GOS-E at 6 months</li>
+  </ul>
+  <h3>GOS-E at 6 months</h3>
+  <table class="cmp">
+    <thead><tr><th>Category</th><th>Craniectomy</th><th>Medical</th></tr></thead>
+    <tbody>
+      <tr><td>Death</td><td><b>26.9%</b></td><td>48.9%</td></tr>
+      <tr><td>Vegetative state</td><td>8.5%</td><td>2.1%</td></tr>
+      <tr><td>Lower severe disability</td><td>21.9%</td><td>14.4%</td></tr>
+      <tr><td>Upper severe disability</td><td>15.4%</td><td>8.0%</td></tr>
+      <tr><td>Moderate disability</td><td>23.4%</td><td>19.7%</td></tr>
+      <tr><td>Good recovery</td><td>4.0%</td><td>6.9%</td></tr>
+    </tbody>
+  </table>
+  <h3>Key numbers</h3>
+  <ul>
+    <li>Favourable outcome (upper severe disability or better) at 6 m: <b>42.8% vs 34.6% (P=0.12)</b></li>
+    <li>At 12 m: <b>45.4% vs 32.4% (P=0.01)</b></li>
+    <li>Per 100 craniectomies: 22 more survivors — of whom <b>9 in vegetative/severe disability</b>, 13 favourable</li>
+    <li>Median ICU discharge: <b>15 vs 20.8 days (P=0.01)</b></li>
+    <li>Adverse events: <b>16.3% vs 9.2% (P=0.03)</b> — pneumonia, haematoma, wound infection</li>
+    <li><b>37.2%</b> of medical group crossed over to surgery</li>
+  </ul>
+  <div class="pearl"><b>24-month follow-up:</b> mortality 33.5% vs 54%; more disability in surgical arm, but more patients improved over time. <b>Take-home:</b> Last-tier craniectomy saves lives but increases severe disability. Individualise decisions.</div>
+</section>
+
+<!-- 23 -->
+<section class="card" id="c23">
+  <h2><span class="num">23</span> Hemicraniectomy in Older MCA Stroke — DESTINY II</h2>
+  <p class="cite">Jüttler et al. · NEJM 2014 · 13 German centres, 2009–2013</p>
+  <span class="verdict v-none">— Saves lives, high disability</span>
+  <p class="quick"><b>Question:</b> Does hemicraniectomy improve survival without severe disability in patients &gt;60 y with malignant MCA infarction?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>112 patients (stopped early) · ≥61 y · malignant MCA infarct · ≥2/3 MCA territory + basal ganglia</li>
+    <li>NIHSS &gt;14 (non-dominant) or &gt;19 (dominant) with impaired consciousness</li>
+    <li><b>Hemicraniectomy</b> with duraplasty (bone flap ≥12 cm) vs conservative care (osmotherapy, hyperventilation)</li>
+    <li>Primary: survival with mRS ≤4 at 6 months</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Hemicraniectomy</th><th>Conservative</th></tr></thead>
+    <tbody>
+      <tr><td>mRS 0–4 (primary)</td><td><b>38%</b> (20/49)</td><td>18% (10/63) <span style="color:var(--muted)">(OR 2.91, P=0.04)</span></td></tr>
+      <tr><td>12-month survival</td><td><b>57%</b></td><td>24%</td></tr>
+      <tr><td>mRS 0–3 (walk unassisted)</td><td colspan="2"><b>No significant difference</b></td></tr>
+      <tr><td>No patients with mRS 0–2</td><td>0%</td><td>0%</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>Benefit driven mainly by <b>improved survival</b> — disability level among survivors similar in both groups</li>
+    <li>Median age 70 y</li>
+    <li>~50% of survivors in both groups could not walk or attend bodily needs at 1 year</li>
+    <li>1/3 bedridden, incontinent, requiring constant care in both groups</li>
+  </ul>
+  <div class="pearl"><b>Context:</b> DESTINY, DECIMAL, HAMLET (pooled) showed benefit in patients ≤60 y. DESTINY II extended this to &gt;60 y — but with much higher residual disability. <b>Shared decision-making is essential.</b></div>
+</section>
+
+<!-- 24 -->
+<section class="card" id="c24">
+  <h2><span class="num">24</span> IV Thrombolysis 3–4.5 h — ECASS III</h2>
+  <p class="cite">Hacke et al. · NEJM 2008 · 130 sites, 19 countries, 2003–2007</p>
+  <span class="verdict v-good">✔ Extended window</span>
+  <p class="quick"><b>Question:</b> Does alteplase improve outcomes when given 3–4.5 h after ischaemic stroke onset?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>821 patients · 18–80 y · stroke within 3–4.5 h · double-blind</li>
+    <li><b>Alteplase 0.9 mg/kg</b> (max 90 mg; 10% bolus, rest over 60 min) vs placebo</li>
+    <li>Primary: mRS 0–1 (favourable) at day 90</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Alteplase</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>mRS 0–1 at day 90</td><td><b>52.4%</b></td><td>45.2% <span style="color:var(--muted)">(OR 1.34, P=0.04)</span></td></tr>
+      <tr><td>Global outcome</td><td colspan="2">OR 1.28 (1.00–1.65), P=0.05</td></tr>
+      <tr><td>90-day mortality</td><td>7.7%</td><td>8.4% (P=0.68)</td></tr>
+      <tr><td>Symptomatic ICH</td><td><b>2.4%</b></td><td>0.2% <span style="color:var(--muted)">(OR 9.85, P=0.008)</span></td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>Median time to treatment: <b>3 h 59 min</b></li>
+    <li>Protocol amended mid-trial to extend from 4 h to 4.5 h</li>
+    <li><b>Fragility index = 1</b> — one extra favourable outcome in placebo would nullify result</li>
+    <li>Baseline imbalance: placebo arm had more severe strokes and more prior stroke</li>
+  </ul>
+  <div class="pearl"><b>2020 re-analysis (Alper):</b> after adjusting for baseline imbalances, the primary outcome was <b>no longer significant</b> — but this is hypothesis-generating, not practice-changing. <b>Take-home:</b> Alteplase is still recommended for selected patients at 3–4.5 h.</div>
+</section>
+
+<!-- 25 -->
+<section class="card" id="c25">
+  <h2><span class="num">25</span> Four Treatments for Generalized Convulsive Status Epilepticus — Treiman</h2>
+  <p class="cite">Treiman et al. · NEJM 1998 · 16 VA + 6 university hospitals, USA, 1990–1995</p>
+  <span class="verdict v-good">✔ Lorazepam best</span>
+  <p class="quick"><b>Question:</b> Which of four IV regimens is most effective for GCSE?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>570 enrolled (518 verified GCSE) · double-blind · 4 arms</li>
+    <li><b>Diazepam</b> 0.15 mg/kg + phenytoin 18 mg/kg<br>
+        <b>Lorazepam</b> 0.1 mg/kg<br>
+        <b>Phenobarbital</b> 15 mg/kg<br>
+        <b>Phenytoin</b> 18 mg/kg alone</li>
+    <li>Success: cessation of clinical + electrical seizures within 20 min, no recurrence 20–60 min</li>
+  </ul>
+  <h3>Success rates — verified overt GCSE</h3>
+  <table class="cmp">
+    <thead><tr><th>Drug</th><th>Success</th></tr></thead>
+    <tbody>
+      <tr><td><b>Lorazepam</b></td><td><b>64.9%</b></td></tr>
+      <tr><td>Phenobarbital</td><td>58.2%</td></tr>
+      <tr><td>Diazepam + phenytoin</td><td>55.8%</td></tr>
+      <tr><td>Phenytoin alone</td><td>43.6% <span style="color:var(--muted)">(lorazepam vs phenytoin P=0.002)</span></td></tr>
+    </tbody>
+  </table>
+  <h3>Key numbers</h3>
+  <ul>
+    <li>Subtle GCSE success much lower and <b>no difference between arms</b> (P=0.18)</li>
+    <li>Combined overt + subtle: lorazepam 52.2%, phenobarbital 49.2%, diazepam-phenytoin 43.1%, phenytoin 36.8%</li>
+    <li>Subtle GCSE: only 8.8% discharged vs 50.1% in overt; 30-day mortality <b>64.7% vs 27%</b></li>
+    <li>Adverse events (hypotension, hypoventilation, arrhythmias): similar across groups</li>
+    <li>~50% of overt GCSE needed a second agent; response to second drug only 7%</li>
+  </ul>
+  <div class="pearl"><b>Modern context:</b> Lorazepam remains first-line. IM midazolam is an alternative pre-hospital (RAMPART). Levetiracetam/valproate now used as second-line. Status definition changed to ≥5 min (Neurocritical Care Society 2012).</div>
+</section>
+
+<!-- 26 -->
+<section class="card" id="c26">
+  <h2><span class="num">26</span> Clipping vs Coiling in Ruptured Aneurysms — ISAT</h2>
+  <p class="cite">Molyneux et al. · Lancet 2002 · 43 centres (Europe + N. America), 1994–2002</p>
+  <span class="verdict v-good">✔ Coiling better</span>
+  <p class="quick"><b>Question:</b> For ruptured intracranial aneurysms suitable for either, is endovascular coiling or surgical clipping better?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>2143 patients · SAH proven by CT/LP · aneurysm confirmed on angiography · suitable for both</li>
+    <li><b>Neurosurgical clipping</b> vs <b>endovascular platinum coils</b></li>
+    <li>Minimisation algorithm balancing age, sex, grade, aneurysm location, haemorrhage extent</li>
+    <li>Primary: death or dependency (mRS 3–6) at 1 year</li>
+    <li><b>Stopped early</b> at planned interim analysis</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Endovascular</th><th>Neurosurgery</th></tr></thead>
+    <tbody>
+      <tr><td>Dead or dependent at 2 months</td><td><b>25.4%</b></td><td>36.4% <span style="color:var(--muted)">(RR 0.698, P=0.0001)</span></td></tr>
+      <tr><td>Dead or dependent at 1 year</td><td><b>23.7%</b></td><td>30.6% <span style="color:var(--muted)">(RR 0.774, P=0.0019)</span></td></tr>
+      <tr><td>Case fatality at 1 year</td><td>8.1%</td><td>10.1% (NS)</td></tr>
+      <tr><td>Rebleeding in first 30 days</td><td>10%</td><td>3%</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>97.3% anterior circulation · most common: anterior cerebral, ICA, MCA</li>
+    <li>Absolute risk reduction 6.9% at 1 year</li>
+    <li>Rebleeding with endovascular: often incomplete occlusion or thromboembolic complication treated with thrombolysis (no survivors)</li>
+    <li>77% of patients from UK · only 22.4% of screened patients randomised</li>
+  </ul>
+  <div class="pearl"><b>Long-term follow-up:</b> at 18 years, coiling remained favourable for independence (OR 1.34). But <b>late retreatment 6.9× more frequent after coiling</b> (17.4% vs 3.8%). Rebleeding from target aneurysm more common after coiling (13 vs 4 cases).</div>
+</section>
+
+<!-- 27 -->
+<section class="card" id="c27">
+  <h2><span class="num">27</span> tPA for Acute Ischaemic Stroke — NINDS</h2>
+  <p class="cite">NINDS rt-PA Study Group · NEJM 1995 · 8 US academic centres, 1991–1994</p>
+  <span class="verdict v-good">✔ Practice-changing benefit</span>
+  <p class="quick"><b>Question:</b> Does IV tPA within 3 h of ischaemic stroke onset improve outcomes?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>624 patients · two sequential RCTs (Part 1: 291, Part 2: 333)</li>
+    <li><b>tPA 0.9 mg/kg</b> (max 90 mg; 10% bolus, rest over 60 min) vs placebo</li>
+    <li>Part 1 primary: ≥4-point NIHSS improvement at 24 h<br>Part 2 primary: global disability at 90 days</li>
+    <li>Stratified by centre and time 0–90 min vs 91–180 min</li>
+  </ul>
+  <h3>Key numbers — 90-day outcomes (Part 2 + pooled)</h3>
+  <table class="cmp">
+    <thead><tr><th>Measure</th><th>tPA</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>mRS 0–1</td><td><b>39%</b></td><td>26% (P=0.008)</td></tr>
+      <tr><td>Barthel ≥95</td><td><b>59%</b></td><td>39% (P&lt;0.001)</td></tr>
+      <tr><td>NIHSS 0–1</td><td><b>38%</b></td><td>20% (P&lt;0.001)</td></tr>
+      <tr><td>Glasgow Outcome 1</td><td><b>50%</b></td><td>32% (P&lt;0.001)</td></tr>
+      <tr><td>Global OR favourable</td><td colspan="2"><b>1.7 (1.2–2.6), P=0.008</b></td></tr>
+      <tr><td>90-day mortality</td><td>17%</td><td>21% (P=0.30)</td></tr>
+      <tr><td>Symptomatic ICH within 36 h</td><td><b>6.4%</b></td><td>0.6% (P&lt;0.001)</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li><b>NNT = 7</b> for favourable outcome</li>
+    <li>Part 1 (24-h) outcome <b>not</b> significant — but 90-day outcomes were</li>
+    <li>Benefit across subtypes: small vessel, large vessel, embolic</li>
+    <li>Benefit independent of age, stroke severity, prior aspirin</li>
+    <li>Of 28 patients with ICH, 17 (61%) died</li>
+  </ul>
+  <div class="pearl"><b>Legacy:</b> Led to FDA approval in 1996. Established the 3-hour window as standard of care. Follow-up at 6 and 12 months showed sustained benefit (OR 1.7).</div>
+</section>
+
+<!-- 28 -->
+<section class="card" id="c28">
+  <h2><span class="num">28</span> Tranexamic Acid in TBI — CRASH-3</h2>
+  <p class="cite">CRASH-3 Collaborators · Lancet 2019 · 175 hospitals, 29 countries, 2012–2019</p>
+  <span class="verdict v-good">✔ Benefit in mild–moderate TBI</span>
+  <p class="quick"><b>Question:</b> Does early tranexamic acid reduce head-injury-related death in TBI?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>12,737 patients · adult · within 3 h of TBI · GCS ≤12 or any intracranial haemorrhage on CT</li>
+    <li><b>TXA 1 g over 10 min → 1 g infusion over 8 h</b> vs placebo</li>
+    <li>Original window 8 h; amended to 3 h mid-study (fresh evidence on timing)</li>
+    <li>Primary: head-injury-related death within 28 days</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>TXA</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>Head injury-related death at 28 d (all, within 3 h)</td><td>18.5% (855/4613)</td><td>19.8% (892/4514) <span style="color:var(--muted)">(RR 0.94, 0.86–1.02)</span></td></tr>
+      <tr><td>After excluding GCS 3 + bilateral unreactive pupils</td><td><b>12.5%</b></td><td>14.0% <span style="color:var(--muted)">(RR 0.89, 0.80–1.00)</span></td></tr>
+      <tr><td>Mild–moderate TBI mortality</td><td><b>5.8%</b></td><td>7.5% <span style="color:var(--muted)">(RR 0.78, 0.62–0.95)</span></td></tr>
+      <tr><td>Severe TBI mortality</td><td>39.6%</td><td>40.1% (RR 0.99, NS)</td></tr>
+      <tr><td>Death within 24 h</td><td colspan="2">RR 0.81 (0.69–0.95)</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>No difference by time of administration within 3 h</li>
+    <li>Disability among survivors (Disability Rating Scale) <b>similar</b> in both groups</li>
+    <li>Vascular occlusive events and seizures <b>not increased</b></li>
+    <li>Benefit confined to <b>mild–moderate TBI</b> and those with reactive pupils</li>
+  </ul>
+  <div class="pearl"><b>Take-home:</b> TXA reduces head-injury-related death in TBI — benefit driven by mild–moderate injury. No benefit in severe TBI. Safe (no increase in thrombosis).</div>
+</section>
+
+<!-- ============================================================ -->
+<h2 style="margin:30px 0 14px;font-size:1.05rem;letter-spacing:-.01em;">Part V · Corticosteroids in Sepsis</h2>
+
+<!-- 29 -->
+<section class="card" id="c29">
+  <h2><span class="num">29</span> Hydrocortisone–Fludrocortisone in Septic Shock — Annane et al.</h2>
+  <p class="cite">Annane et al. · JAMA 2002 · 19 French ICUs, 299 patients</p>
+  <span class="verdict v-good">✔ Benefit in non-responders</span>
+  <p class="quick"><b>Question:</b> Do low-dose hydrocortisone + fludrocortisone improve survival in septic shock with relative adrenal insufficiency?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>299 patients · septic shock (infection + SIRS + hypotension despite fluids + vasopressors + organ dysfunction)</li>
+    <li><b>Hydrocortisone 50 mg q6h IV + fludrocortisone 50 µg NG daily × 7 days</b> vs placebo</li>
+    <li>Short corticotrophin test (250 µg tetracosactrin)<br>
+        <b>Non-responders:</b> cortisol rise ≤ 9 µg/dL<br>
+        <b>Responders:</b> rise &gt; 9 µg/dL</li>
+    <li>Primary: 28-day mortality in non-responders</li>
+  </ul>
+  <h3>Key numbers — non-responders (n=229)</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Corticosteroid</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>28-day mortality</td><td><b>53%</b> (60/114)</td><td>63% (73/115) <span style="color:var(--muted)">(OR 0.54, P=0.04)</span></td></tr>
+      <tr><td>ICU mortality</td><td><b>58%</b></td><td>70% <span style="color:var(--muted)">(OR 0.50, P=0.02)</span></td></tr>
+      <tr><td>Hospital mortality</td><td><b>61%</b></td><td>72% <span style="color:var(--muted)">(OR 0.53, P=0.04)</span></td></tr>
+      <tr><td>1-year mortality</td><td>77%</td><td>88% <span style="color:var(--muted)">(OR 0.57, P=0.07)</span></td></tr>
+    </tbody>
+  </table>
+  <h3>Responders</h3>
+  <ul>
+    <li>No mortality difference — placebo 53% vs corticosteroid 61% (P=0.96)</li>
+    <li>Overall (responders + non-responders): no significant difference in 28-day mortality (55% vs 61%)</li>
+  </ul>
+  <h3>Pearls</h3>
+  <ul>
+    <li>Vasopressor cessation earlier in non-responders: <b>10 vs 7 days</b>; at day 28, 57% vs 40% off vasopressors</li>
+    <li>No increase in adverse events</li>
+    <li>Etomidate given in 24% of patients — may have induced adrenal insufficiency</li>
+    <li>NNT ≈ 7 in non-responders</li>
+    <li>Only 300 of 1326 screened were randomised — highly selective</li>
+  </ul>
+  <div class="pearl"><b>Subsequent trials (CORTICUS, ADRENAL):</b> Did <b>not</b> reproduce the mortality benefit. The corticotrophin test is no longer used to select patients for steroids.</div>
+</section>
+
+<!-- 30 -->
+<section class="card" id="c30">
+  <h2><span class="num">30</span> Hydrocortisone in Septic Shock — CORTICUS</h2>
+  <p class="cite">Sprung et al. · NEJM 2008 · 52 ICUs, 9 countries, 2002</p>
+  <span class="verdict v-none">— No mortality benefit</span>
+  <p class="quick"><b>Question:</b> Does low-dose hydrocortisone improve survival in a broad septic shock population, regardless of corticotrophin response?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>499 patients · clinical infection + shock within 72 h</li>
+    <li><b>Hydrocortisone 50 mg q6h IV × 5 days</b>, then tapered over days 6–11 vs placebo</li>
+    <li>Short corticotropin test (250 µg cosyntropin) — measured baseline and 60 min</li>
+    <li>Primary: 28-day mortality</li>
+    <li><b>Stopped early</b> at 500 patients (slow recruitment, funding, drug expiry) — target was 800</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Hydrocortisone</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>28-day mortality — overall</td><td>34.3%</td><td>31.5% <span style="color:var(--muted)">(P=0.51)</span></td></tr>
+      <tr><td>28-day mortality — non-responders</td><td>39.2%</td><td>36.1% (P=0.69)</td></tr>
+      <tr><td>28-day mortality — responders</td><td>28.8%</td><td>28.7% (P=1.00)</td></tr>
+      <tr><td>ICU mortality</td><td>40.6%</td><td>36.0% (P=0.31)</td></tr>
+      <tr><td>Hospital mortality</td><td>44.2%</td><td>40.7% (P=0.47)</td></tr>
+      <tr><td>Shock reversal</td><td>79.7%</td><td>74.2% (P=0.18)</td></tr>
+      <tr><td>Time to shock reversal</td><td><b>3.3 days</b></td><td>5.8 days (P&lt;0.001)</td></tr>
+    </tbody>
+  </table>
+  <h3>Adverse events</h3>
+  <ul>
+    <li>Superinfections, new-onset sepsis/septic shock: <b>more common with hydrocortisone</b></li>
+    <li>Hyperglycaemia and hypernatraemia: <b>more common with hydrocortisone</b></li>
+  </ul>
+  <div class="pearl"><b>Take-home:</b> Hydrocortisone did not improve survival — but shock resolved faster. The corticotrophin test could not identify who benefits. Underpowered (assumed 50% mortality; actual 31.5%).</div>
+</section>
+
+<!-- 31 -->
+<section class="card" id="c31">
+  <h2><span class="num">31</span> Hydrocortisone in Septic Shock — ADRENAL</h2>
+  <p class="cite">Venkatesh et al. · NEJM 2018 · 69 ICUs (ANZ, UK, Saudi, Denmark), 2013–2017</p>
+  <span class="verdict v-none">— No mortality benefit</span>
+  <p class="quick"><b>Question:</b> Does hydrocortisone infusion improve 90-day mortality in septic shock?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>3800 patients · septic shock on mechanical ventilation · vasopressors to maintain MAP &gt;60 for ≥4 h</li>
+    <li><b>Hydrocortisone 200 mg/day continuous infusion × 7 days</b> (or until ICU discharge/death) vs placebo</li>
+    <li>Primary: 90-day all-cause mortality</li>
+    <li>Largest RCT of steroids in septic shock</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Hydrocortisone</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>90-day mortality</td><td>27.9% (511/1832)</td><td>28.8% (526/1826) <span style="color:var(--muted)">(OR 0.95, P=0.50)</span></td></tr>
+      <tr><td>28-day mortality</td><td>22.3%</td><td>24.3% (NS)</td></tr>
+      <tr><td>Time to shock resolution</td><td><b>3 days</b></td><td>4 days (P&lt;0.001)</td></tr>
+      <tr><td>Time to cessation of initial ventilation</td><td><b>6 days</b></td><td>7 days (P&lt;0.001)</td></tr>
+      <tr><td>ICU-free days at 90 d</td><td>58.2 ± 34.8</td><td>56.0 ± 35.4 (NS)</td></tr>
+      <tr><td>Ventilator-free days at 90 d</td><td>61.2 ± 35.6</td><td>59.1 ± 36.1 (NS)</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>No difference in any pre-specified subgroup</li>
+    <li>Open-label hydrocortisone given to 7.4% of steroid group and 8.8% of placebo group</li>
+    <li>Blood transfusions fewer in hydrocortisone group</li>
+    <li>Excluded patients who received etomidate</li>
+  </ul>
+  <div class="pearl"><b>APROCCHSS (NEJM 2018, same issue):</b> 1241 patients · hydrocortisone + fludrocortisone → <b>lower 90-day mortality</b> (43.0% vs 49.1%, P=0.03). Smaller than ADRENAL but positive.<br><br>
+  <b>Current Surviving Sepsis recommendation:</b> IV hydrocortisone 200 mg/day for septic shock requiring ≥0.25 µg/kg/min noradrenaline for ≥4 h.</div>
+</section>
+
+<!-- ============================================================ -->
+<h2 style="margin:30px 0 14px;font-size:1.05rem;letter-spacing:-.01em;">Part VI · Corticosteroids in ARDS</h2>
+
+<!-- 32 -->
+<section class="card" id="c32">
+  <h2><span class="num">32</span> Methylprednisolone in Unresolving ARDS — Meduri et al.</h2>
+  <p class="cite">Meduri et al. · JAMA 1998 · 4 US medical ICUs, 1994–1996</p>
+  <span class="verdict v-good">✔ Signal of benefit (small)</span>
+  <p class="quick"><b>Question:</b> Does prolonged methylprednisolone improve outcomes in ARDS that fails to resolve by day 7?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>24 patients · severe ARDS (LIS ≥2.5) with failure to improve by day 7</li>
+    <li><b>Methylprednisolone:</b> 2 mg/kg/day days 1–14, then taper over 32 days vs placebo</li>
+    <li>Randomised 2:1 (steroid : placebo)</li>
+    <li>Crossover allowed if no improvement by day 10</li>
+    <li>Primary: ICU survival + improvement in Lung Injury Score by day 10</li>
+    <li><b>Stopped early</b> for benefit (target was 99 patients)</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Methylprednisolone</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>ICU survival</td><td><b>16/16 (100%)</b></td><td>3/8 (37%) <span style="color:var(--muted)">(P=0.002)</span></td></tr>
+      <tr><td>Hospital survival</td><td><b>14/16 (87%)</b></td><td>3/8 (37%) (P=0.03)</td></tr>
+      <tr><td>Median duration of ventilation</td><td><b>11.5 days</b></td><td>23 days (P=0.005)</td></tr>
+      <tr><td>Lung Injury Score at day 10</td><td><b>1.7</b></td><td>3.0 (P&lt;0.001)</td></tr>
+      <tr><td>Successful extubation by day 10</td><td>7/16 (44%)</td><td>0/8 (0%) (P=0.05)</td></tr>
+      <tr><td>Infection per 100 days of treatment</td><td>8</td><td>7 (P=0.99)</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>Tiny sample (24 patients, 2:1 ratio) — low robustness</li>
+    <li>Ventilation strategy not protocolized (pre-ARDSNet; Pplat ≤35 allowed)</li>
+    <li>4 of 8 placebo patients crossed over to steroids</li>
+  </ul>
+</section>
+
+<!-- 33 -->
+<section class="card" id="c33">
+  <h2><span class="num">33</span> Corticosteroids in Persistent ARDS — LaSRS</h2>
+  <p class="cite">Steinberg et al. · NEJM 2006 · 25 US hospitals (NHLBI ARDS Network), 1997–2003</p>
+  <span class="verdict v-none">— No survival benefit; possible harm if late</span>
+  <p class="quick"><b>Question:</b> Does methylprednisolone improve survival in persistent ARDS (7–28 days after onset)?</p>
+  <h3>Design</h3>
+  <ul>
+    <li>180 patients · ARDS for 7–28 days · PaO₂/FiO₂ &lt; 200 at enrolment</li>
+    <li><b>Methylprednisolone:</b> 2 mg/kg loading → 0.5 mg/kg q6h × 14 days, then taper vs placebo</li>
+    <li>Primary: 60-day hospital mortality</li>
+    <li>Sample size reduced from 400 → 180 after 2 years (slow enrolment + new data)</li>
+  </ul>
+  <h3>Key numbers</h3>
+  <table class="cmp">
+    <thead><tr><th>Outcome</th><th>Methylprednisolone</th><th>Placebo</th></tr></thead>
+    <tbody>
+      <tr><td>60-day mortality — overall</td><td>29.2%</td><td>28.6% <span style="color:var(--muted)">(P=1.0)</span></td></tr>
+      <tr><td>60-day mortality — enrolled &gt;14 days after ARDS onset</td><td><b>35%</b></td><td>8% (P=0.02)</td></tr>
+      <tr><td>180-day mortality — overall</td><td>31.5%</td><td>31.9% (P=1.0)</td></tr>
+      <tr><td>180-day mortality — enrolled &gt;14 days after onset</td><td><b>44%</b></td><td>12% (P=0.01)</td></tr>
+      <tr><td>Ventilator-free days at 28 d</td><td><b>11.2 ± 9.4</b></td><td>6.8 ± 8.5 (P&lt;0.001)</td></tr>
+      <tr><td>Re-initiation of ventilation</td><td><b>20 patients</b></td><td>6 patients (P=0.008)</td></tr>
+    </tbody>
+  </table>
+  <h3>Pearls</h3>
+  <ul>
+    <li>Early physiology improved: PaO₂/FiO₂ higher, Pplat lower, compliance better</li>
+    <li>More shock-free days, more ventilator-free days — <b>but no survival benefit</b></li>
+    <li>Neuromyopathy more common with methylprednisolone (9 vs 2 patients)</li>
+    <li>No increase in serious secondary infections</li>
+    <li>Only 5% of eligible patients randomised — very selective</li>
+    <li>Methylprednisolone stopped abruptly 3 days post-extubation — possible rebound (Meduri 2018 re-analysis)</li>
+  </ul>
+  <div class="pearl"><b>Later evidence:</b> <b>DEXA-ARDS (Villar 2020):</b> dexamethasone 20 mg × 5 days then 10 mg × 5 days in ARDS → more ventilator-free days (12.3 vs 7.5) and lower 60-day mortality (21% vs 36%). <b>RECOVERY (COVID-19 ARDS):</b> dexamethasone 6 mg × 10 days reduced mortality in patients on oxygen/ventilation. Corticosteroids are now standard in COVID-19 ARDS, but routine use in non-COVID ARDS remains debated.</div>
+</section>
+
 </main>
+
+<footer>
+  Landmark Studies in Critical Care — Parts I–VI quick revision notes. Always confirm against the original papers.
+</footer>
+
+<!-- ===== COLLAPSIBLE PARTS ===== -->
+<script>
+(function(){
+  var main = document.querySelector('main');
+  if(!main) return;
+  var h2s = Array.from(main.querySelectorAll(':scope > h2'));
+  if(!h2s.length) return;
+
+  var START_OPEN = false;
+  var FIRST_OPEN = true;
+
+  h2s.forEach(function(h2, i){
+    var details = document.createElement('details');
+    details.className = 'part';
+    details.open = START_OPEN || (FIRST_OPEN && i === 0);
+
+    var summary = document.createElement('summary');
+    h2.parentNode.insertBefore(details, h2);
+    summary.appendChild(h2);
+    details.appendChild(summary);
+
+    var node = details.nextElementSibling;
+    while(node && node.tagName !== 'H2'){
+      var next = node.nextElementSibling;
+      details.appendChild(node);
+      node = next;
+    }
+  });
+
+  var ctrl = document.createElement('div');
+  ctrl.id = 'partctrl';
+  ctrl.innerHTML = '<button type="button" id="expAll">Expand all</button>' +
+                   '<button type="button" id="colAll">Collapse all</button>';
+  main.insertBefore(ctrl, main.firstElementChild);
+
+  document.getElementById('expAll').onclick = function(){
+    document.querySelectorAll('details.part').forEach(function(d){ d.open = true; });
+  };
+  document.getElementById('colAll').onclick = function(){
+    document.querySelectorAll('details.part').forEach(function(d){ d.open = false; });
+  };
+
+  function openTarget(hash){
+    if(!hash || hash.length < 2) return;
+    var t = document.querySelector(hash);
+    if(!t) return;
+    var d = t.closest('details.part');
+    if(d) d.open = true;
+  }
+  document.addEventListener('click', function(e){
+    var a = e.target.closest('a[href^="#"]');
+    if(a) openTarget(a.getAttribute('href'));
+  });
+  if(location.hash) openTarget(location.hash);
+})();
+</script>
+
+<!-- ===== SEARCH WIDGET ===== -->
+<div id="findbar">
+  <input id="findinput" type="search" placeholder="Search this page…" autocomplete="off">
+  <span class="cnt" id="findcount">0/0</span>
+  <button id="findprev" title="Previous (Shift+Enter)">↑</button>
+  <button id="findnext" title="Next (Enter)">↓</button>
+  <button id="findclear" title="Clear (Esc)">✕</button>
+</div>
+
+<script>
+(function(){
+  var input   = document.getElementById('findinput');
+  var counter = document.getElementById('findcount');
+  var marks = [], idx = -1;
+
+  function clearHighlights(){
+    document.querySelectorAll('mark.hl').forEach(function(m){
+      var p = m.parentNode;
+      p.replaceChild(document.createTextNode(m.textContent), m);
+      p.normalize();
+    });
+    marks = []; idx = -1;
+    counter.textContent = '0/0';
+  }
+
+  function highlight(term){
+    if(!term){ clearHighlights(); return; }
+    var root = document.querySelector('main');
+    if(!root) return;
+
+    var walker = document.createTreeWalker(root, NodeFilter.SHOW_TEXT, {
+      acceptNode: function(n){
+        if(!n.nodeValue.trim()) return NodeFilter.FILTER_REJECT;
+        var p = n.parentNode.nodeName;
+        if(p === 'SCRIPT' || p === 'STYLE' || p === 'MARK') return NodeFilter.FILTER_REJECT;
+        return NodeFilter.FILTER_ACCEPT;
+      }
+    });
+    var nodes = [], n;
+    while((n = walker.nextNode())) nodes.push(n);
+
+    var re = new RegExp(term.replace(/[.*+?^${}()|[\]\\]/g,'\\$&'), 'gi');
+
+    nodes.forEach(function(node){
+      var text = node.nodeValue;
+      if(!re.test(text)) return;
+      re.lastIndex = 0;
+      var frag = document.createDocumentFragment(), last = 0, m;
+      while((m = re.exec(text)) !== null){
+        if(m.index > last) frag.appendChild(document.createTextNode(text.slice(last, m.index)));
+        var mk = document.createElement('mark');
+        mk.className = 'hl';
+        mk.textContent = m[0];
+        frag.appendChild(mk);
+        marks.push(mk);
+        last = m.index + m[0].length;
+      }
+      if(last < text.length) frag.appendChild(document.createTextNode(text.slice(last)));
+      node.parentNode.replaceChild(frag, node);
+    });
+
+    if(marks.length){
+      // Auto-open any collapsed part containing a match
+      marks.forEach(function(m){
+        var d = m.closest('details.part');
+        if(d) d.open = true;
+      });
+      idx = 0;
+      marks[0].classList.add('cur');
+      marks[0].scrollIntoView({block:'center', behavior:'smooth'});
+    }
+    counter.textContent = (marks.length ? 1 : 0) + '/' + marks.length;
+  }
+
+  function move(step){
+    if(!marks.length) return;
+    marks[idx].classList.remove('cur');
+    idx = (idx + step + marks.length) % marks.length;
+    marks[idx].classList.add('cur');
+    marks[idx].scrollIntoView({block:'center', behavior:'smooth'});
+    counter.textContent = (idx + 1) + '/' + marks.length;
+  }
+
+  var timer;
+  input.addEventListener('input', function(){
+    clearTimeout(timer);
+    timer = setTimeout(function(){
+      clearHighlights();
+      highlight(input.value.trim());
+    }, 180);
+  });
+
+  input.addEventListener('keydown', function(e){
+    if(e.key === 'Enter'){ e.preventDefault(); move(e.shiftKey ? -1 : 1); }
+    if(e.key === 'Escape'){ input.value = ''; clearHighlights(); }
+  });
+
+  document.getElementById('findnext').onclick  = function(){ move(1); };
+  document.getElementById('findprev').onclick  = function(){ move(-1); };
+  document.getElementById('findclear').onclick = function(){ input.value=''; clearHighlights(); input.focus(); };
+
+  document.addEventListener('keydown', function(e){
+    if((e.ctrlKey || e.metaKey) && e.key.toLowerCase() === 'f'){
+      e.preventDefault(); input.focus(); input.select();
+    }
+  });
+})();
+</script>
+
 </body>
-</html>
+                                                                   </html>
